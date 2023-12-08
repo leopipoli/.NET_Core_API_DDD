@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "API\Application.csproj", "{9E7E9020-0846-4033-9087-A133BED8B81C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "API\Application.csproj", "{9E7E9020-0846-4033-9087-A133BED8B81C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{5B18EE39-6BF1-4CE2-BB74-6C85E77ECB95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{5B18EE39-6BF1-4CE2-BB74-6C85E77ECB95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{51392658-8782-4728-9AF2-1530E5D6F7DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{51392658-8782-4728-9AF2-1530E5D6F7DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{77177593-60B1-45C9-98A3-57A8A528601C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{77177593-60B1-45C9-98A3-57A8A528601C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossCutting", "CrossCutting\CrossCutting.csproj", "{0CBE91A2-28D5-48CC-AC25-FA5B3C9977B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossCutting", "CrossCutting\CrossCutting.csproj", "{0CBE91A2-28D5-48CC-AC25-FA5B3C9977B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

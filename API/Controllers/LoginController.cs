@@ -1,39 +1,47 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace API.Controllers
+namespace Api.Application.Controllers
 {
+
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class LoginController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
+        public LoginController()
         {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
 
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
-        {
-            _logger = logger;
         }
 
-        [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
-        {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
-        }
+        //[HttpPost]
+        //[AllowAnonymous]
+        //public async Task<object> Login([FromBody] LoginDto loginDto, [FromServices] ILoginService service)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+
+        //    if (loginDto == null)
+        //    {
+        //        return BadRequest();
+        //    }
+
+        //    try
+        //    {
+        //        var result = await service.FindByLogin(loginDto);
+        //        if (result != null)
+        //        {
+        //            return result;
+        //        }
+        //        else
+        //        {
+        //            return NotFound();
+        //        }
+        //    }
+        //    catch (ArgumentException e)
+        //    {
+        //        return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+        //    }
+        //}
     }
 }
