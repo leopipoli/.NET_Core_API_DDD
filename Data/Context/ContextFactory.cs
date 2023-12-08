@@ -9,7 +9,7 @@ namespace Data.Context
         {
             var connectionString = "server=localhost;Port=3306;Database=dbAPI;Uid=root;Pwd=12345";
             var optionsBuilder = new DbContextOptionsBuilder<MyContext>();
-            optionsBuilder.UseMySql(connectionString);
+            optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
             return new MyContext(optionsBuilder.Options);
         }
     }

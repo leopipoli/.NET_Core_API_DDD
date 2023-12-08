@@ -1,4 +1,4 @@
-using CrossCutting.DependencyInjection;
+﻿using CrossCutting.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
