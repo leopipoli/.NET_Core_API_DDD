@@ -3,6 +3,7 @@ using Domain.Interfaces.Services.User;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
 namespace Application.Controllers
@@ -100,6 +101,24 @@ namespace Application.Controllers
                 {
                     return Ok(result);
                 }
+            }
+            catch (ArgumentException ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpDelete ("{id}")]
+        public async Task<ActionResult> Delete(Guid id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                return Ok (await _service.Delete(id));
             }
             catch (ArgumentException ex)
             {
