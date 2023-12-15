@@ -1,4 +1,6 @@
-﻿namespace Domain.Dtos.User
+﻿using System;
+
+namespace Domain.Dtos.User
 {
     public class UserUpdateResultDto
     {
