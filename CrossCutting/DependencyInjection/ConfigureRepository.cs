@@ -4,6 +4,7 @@ using Data.Repository;
 using Domain.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace CrossCutting.DependencyInjection
 {
@@ -14,14 +15,18 @@ namespace CrossCutting.DependencyInjection
             serviceCollection.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             serviceCollection.AddScoped<IUserRepository, UserImplementation>();
 
-            //var connectionString = "server=localhost;Port=3306;Database=dbAPI;Uid=root;Pwd=12345";
-            //serviceCollection.AddDbContext<MyContext>(
-            //    options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
-            //);
-
-            serviceCollection.AddDbContext<MyContext>(
-                options => options.UseSqlServer("Data Source=localhost;Initial Catalog=dbAPI;Integrated Security=True; TrustServerCertificate = true;")
-            );
+            if(Environment.GetEnvironmentVariable("DATABASE").ToLower() == "sqlserver")
+            {
+                serviceCollection.AddDbContext<MyContext>(
+                    options => options.UseSqlServer(Environment.GetEnvironmentVariable("DB_CONNECTION_SQL"))
+                );
+            }
+            else
+            {
+                serviceCollection.AddDbContext<MyContext>(
+                    options => options.UseSqlServer(Environment.GetEnvironmentVariable("DB_CONNECTION_MYSQL"))
+                );
+            }
         }
     }
 }

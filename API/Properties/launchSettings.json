@@ -14,7 +14,11 @@
       "launchBrowser": true,
       "launchUrl": "api/values",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DB_CONNECTION_SQL": "Data Source=localhost;Initial Catalog=dbAPI;Integrated Security=True; TrustServerCertificate = true;",
+        "DB_CONNECTION_MYSQL": "Server=localhost;Port=3306;Database=dbAPI;Uid=root;Pwd=12345",
+        "DATABASE": "SQLSERVER",
+        "MIGRATION": "APLICAR"
       }
     },
     "API": {
@@ -23,7 +27,11 @@
       "launchUrl": "api/values",
       "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DB_CONNECTION_SQL": "Data Source=localhost;Initial Catalog=dbAPI;Integrated Security=True; TrustServerCertificate = true;",
+        "DB_CONNECTION_MYSQL": "Server=localhost;Port=3306;Database=dbAPI;Uid=root;Pwd=12345",
+        "DATABASE": "SQLSERVER",
+        "MIGRATION": "APLICAR"
       }
     }
   }
