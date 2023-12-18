@@ -14,9 +14,13 @@ namespace CrossCutting.DependencyInjection
             serviceCollection.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             serviceCollection.AddScoped<IUserRepository, UserImplementation>();
 
-            var connectionString = "server=localhost;Port=3306;Database=dbAPI;Uid=root;Pwd=12345";
+            //var connectionString = "server=localhost;Port=3306;Database=dbAPI;Uid=root;Pwd=12345";
+            //serviceCollection.AddDbContext<MyContext>(
+            //    options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
+            //);
+
             serviceCollection.AddDbContext<MyContext>(
-                options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
+                options => options.UseSqlServer("Data Source=localhost;Initial Catalog=dbAPI;Integrated Security=True; TrustServerCertificate = true;")
             );
         }
     }

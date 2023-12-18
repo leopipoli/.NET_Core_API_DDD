@@ -1,6 +1,8 @@
 ﻿using Data.Mapping;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using System;
 
 namespace Data.Context
 {
@@ -14,6 +16,16 @@ namespace Data.Context
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<UserEntity>(new UserMap().Configure);
+
+            modelBuilder.Entity<UserEntity>().HasData(
+                new UserEntity
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Administrador",
+                    Email = "leonardo.pipoli48@gmail.com",
+                    CreateAt = DateTime.Now,
+                    UpdateAt = DateTime.Now
+                });
         }
     }
 }

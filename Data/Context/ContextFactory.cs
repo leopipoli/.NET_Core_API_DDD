@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace Data.Context
 {
@@ -7,12 +9,18 @@ namespace Data.Context
     {
         public MyContext CreateDbContext(string[] args)
         {
-            //Usado para Criar as Migrações
-            //var connectionString = "Server=localhost;Port=3306;Database=dbAPI;Uid=root;Pwd=12345";
-            var connectionString = "Server=.\\SQLEXPRESS2017;Database=dbAPI;User Id=sa;Password=12345";
+            ////Usado para Criar as Migrações
+            ////var connectionString = "Server=localhost;Port=3306;Database=dbAPI;Uid=root;Pwd=12345";
+            //var connectionString = Configuration.GetConnectionString("DefaultConnection");
+            //var optionsBuilder = new DbContextOptionsBuilder<MyContext>();
+            ////optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+            //optionsBuilder.UseSqlServer(connectionString);
+            //return new MyContext(optionsBuilder.Options);
+
+            // Criação da instância do DbContext com base nas configurações
             var optionsBuilder = new DbContextOptionsBuilder<MyContext>();
-            //optionsBuilder.UseMySql (connectionString);
-            optionsBuilder.UseSqlServer(connectionString);
+            optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=dbAPI;Integrated Security=True; TrustServerCertificate = true;");
+
             return new MyContext(optionsBuilder.Options);
         }
     }
