@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using CrossCutting.DependencyInjection;
 using CrossCutting.Mappings;
+using Data.Context;
 using Domain.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -31,7 +33,7 @@ namespace API
             ConfigureService.ConfigureDependenciesService(services);
             ConfigureRepository.ConfigureDependenciesRepository(services);
 
-            var config = new AutoMapper.MapperConfiguration(cfg =>
+            var config = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile(new DtoToModelProfile());
                 cfg.AddProfile(new EntityToDtoProfile());
