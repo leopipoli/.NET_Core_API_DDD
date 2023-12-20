@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossCutting", "CrossCutting\CrossCutting.csproj", "{0CBE91A2-28D5-48CC-AC25-FA5B3C9977B0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Test", "Api.Data.Test\Data.Test.csproj", "{201F495D-DCB5-4442-A830-D19DFCE1ACC4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Tests", "Unit Tests", "{8671236F-8E4A-4BF4-A930-0A6586A85C09}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,9 +43,16 @@ Global
 		{0CBE91A2-28D5-48CC-AC25-FA5B3C9977B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CBE91A2-28D5-48CC-AC25-FA5B3C9977B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CBE91A2-28D5-48CC-AC25-FA5B3C9977B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{201F495D-DCB5-4442-A830-D19DFCE1ACC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{201F495D-DCB5-4442-A830-D19DFCE1ACC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{201F495D-DCB5-4442-A830-D19DFCE1ACC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{201F495D-DCB5-4442-A830-D19DFCE1ACC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{201F495D-DCB5-4442-A830-D19DFCE1ACC4} = {8671236F-8E4A-4BF4-A930-0A6586A85C09}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9D9299E2-357F-4BAC-893A-70A4E56CF6AF}
