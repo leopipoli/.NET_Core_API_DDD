@@ -1,5 +1,4 @@
-﻿
-using Data.Context;
+﻿using Data.Context;
 using Data.Repository;
 using Domain.Entities;
 using Domain.Repository;

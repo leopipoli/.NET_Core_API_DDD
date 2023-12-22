@@ -93,7 +93,7 @@ namespace Data.Repository
             try
             {
                 var result = await _dataset.SingleOrDefaultAsync(x => x.Id.Equals(item.Id));
-                if (result != null)
+                if (result == null)
                     return null;
 
                 item.UpdateAt = DateTime.UtcNow;
