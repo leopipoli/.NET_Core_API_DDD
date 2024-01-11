@@ -1,13 +1,12 @@
 using Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace Data.Test
 {
-    public abstract class BaseTest
+    public abstract class BaseTestData
     {
-        public BaseTest()
+        public BaseTestData()
         {
         }
     }

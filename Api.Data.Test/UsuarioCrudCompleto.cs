@@ -6,7 +6,7 @@ using Xunit;
 
 namespace Data.Test
 {
-    public class UsuarioCrudCompleto : BaseTest, IClassFixture<DbTeste>
+    public class UsuarioCrudCompleto : BaseTestData, IClassFixture<DbTeste>
     {
         private ServiceProvider _serviceProvider;
 

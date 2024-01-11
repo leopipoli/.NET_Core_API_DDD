@@ -101,7 +101,7 @@ namespace Service.Services
                 acessToken = token,
                 userName = user.Email,
                 name = user.Name,
-                message = "Usuário Logado com sucesso"
+                message = "Usuário logado com sucesso"
             };
         }
     }

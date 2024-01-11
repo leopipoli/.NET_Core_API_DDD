@@ -22,15 +22,14 @@ namespace Domain.Models
         public string Email
         {
             get { return _email; }
-            set { _name = value; }
+            set { _email = value; }
         }
 
         private DateTime _createAt;
         public DateTime CreateAt
         {
             get { return _createAt; }
-            set { 
-                _createAt = value == null ? DateTime.UtcNow : value; }
+            set { _createAt = value == null ? DateTime.UtcNow : value; }
         }
 
         private DateTime _updateAt;
