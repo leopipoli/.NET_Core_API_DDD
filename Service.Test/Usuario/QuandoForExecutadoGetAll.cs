@@ -10,7 +10,7 @@ namespace Service.Test.Usuario
         private IUserService _service;
         private Mock<IUserService> _serviceMock;
 
-        [Fact(DisplayName = "É possivel executar o método GetAll.")]
+        [Fact(DisplayName = "É possível executar o método GetAll.")]
         public async Task E_Possivel_Executar_Metodo_GetAll()
         {
             _serviceMock = new Mock<IUserService>();

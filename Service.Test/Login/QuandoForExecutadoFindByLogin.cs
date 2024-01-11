@@ -36,7 +36,6 @@ namespace Api.Service.Test.Login
 
             var result = await _service.FindByLogin(loginDto);
             Assert.NotNull(result);
-
         }
     }
 }
