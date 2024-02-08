@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Microsoft.Extensions.Configuration;
-using System.IO;
 
 namespace Data.Context
 {
@@ -16,7 +14,7 @@ namespace Data.Context
 
             // Criação da instância do DbContext com base nas configurações
             var optionsBuilder = new DbContextOptionsBuilder<MyContext>();
-            optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=dbAPI;Integrated Security=True; TrustServerCertificate = true;");
+            optionsBuilder.UseSqlServer("Persist Security Info=True; Data Source=localhost;Initial Catalog=dbAPI;Integrated Security=True; TrustServerCertificate = true;");
 
             return new MyContext(optionsBuilder.Options);
         }

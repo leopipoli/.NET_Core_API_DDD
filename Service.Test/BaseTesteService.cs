@@ -15,11 +15,11 @@ namespace Service.Test
         {
             public IMapper GetMapper()
             {
-                var config = new MapperConfiguration(x =>
+                var config = new MapperConfiguration(cfg =>
                 {
-                    x.AddProfile(new ModelToEntityProfile());
-                    x.AddProfile(new DtoToModelProfile());
-                    x.AddProfile(new EntityToDtoProfile());
+                    cfg.AddProfile(new ModelToEntityProfile());
+                    cfg.AddProfile(new DtoToModelProfile());
+                    cfg.AddProfile(new EntityToDtoProfile());
                 });
 
                 return config.CreateMapper();

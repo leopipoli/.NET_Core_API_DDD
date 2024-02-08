@@ -21,8 +21,8 @@ namespace Data.Test
             var connectionString = $"Persist Security Info=True;Server=localhost;Database={dataBaseName};User=root;Password=12345";
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddDbContext<MyContext>(x =>
-                x.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)),
-                //x.UseSqlServer($"Persist Security Info=True;Server=localhost;Database={dataBaseName};User=root;Password=12345"), 
+                //x.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)),
+                x.UseSqlServer(connectionString),
                     ServiceLifetime.Transient
             );
 

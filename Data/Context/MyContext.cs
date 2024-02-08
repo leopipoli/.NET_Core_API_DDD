@@ -1,7 +1,6 @@
 ﻿using Data.Mapping;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using System;
 
 namespace Data.Context

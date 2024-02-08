@@ -12,19 +12,22 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/values",
+      "launchUrl": "index.html",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "DB_CONNECTION_SQL": "Data Source=localhost;Initial Catalog=dbAPI;Integrated Security=True; TrustServerCertificate = true;",
-        "DB_CONNECTION_MYSQL": "Server=localhost;Port=3306;Database=dbAPI;Uid=root;Pwd=12345",
+        "DB_CONNECTION_SQL": "Persist Security Info=True; Data Source=localhost;Initial Catalog=dbAPI;Integrated Security=True; TrustServerCertificate = true;",
+        "DB_CONNECTION_MYSQL": "Persist Security Info=True; Server=localhost;Port=3306;Database=dbAPI;Uid=root;Pwd=12345",
         "DATABASE": "SQLSERVER",
-        "MIGRATION": "APLICAR"
+        "MIGRATION": "APLICAR",
+        "Audience": "ExemploAudience",
+        "Issuer": "ExemploIssuer",
+        "Seconds": "28800"
       }
     },
     "API": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/values",
+      "launchUrl": "index.html",
       "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",

@@ -11,7 +11,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
@@ -20,16 +19,31 @@ namespace API
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
-            Configuration = configuration;
+            _configuration = configuration;
+            _environment = environment;
         }
 
-        public IConfiguration Configuration { get; }
+        public IConfiguration _configuration { get; }
+        public IWebHostEnvironment _environment { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            if (_environment.IsEnvironment("Testing"))
+            {
+                //Environment.SetEnvironmentVariable("DB_CONNECTION_MYSQL", "Persist Security Info=True; Server=localhost;Port=3306;Database=dbAPI;Uid=root;Pwd=12345");
+                //Environment.SetEnvironmentVariable("DB_CONNECTION_MYSQL", "Persist Security Info=True;Server=localhost:3306;Database=dbAPI;Uid=root;Pwd=12345");
+                Environment.SetEnvironmentVariable("DB_CONNECTION_SQL", "Persist Security Info=True; Data Source=localhost;Initial Catalog=dbAPI;Integrated Security=True; TrustServerCertificate = true;");
+                Environment.SetEnvironmentVariable("DB_CONNECTION_MYSQL", "Persist Security Info=True; Server=localhost;Port=3306;Database=dbAPI;Uid=root;Pwd=12345");
+                Environment.SetEnvironmentVariable("DATABASE", "SQLSERVER");
+                Environment.SetEnvironmentVariable("MIGRATION", "APLICAR");
+                Environment.SetEnvironmentVariable("Audience", "ExemploAudience");
+                Environment.SetEnvironmentVariable("Issuer", "ExemploIssue");
+                Environment.SetEnvironmentVariable("Seconds", "28800");
+            }
+
             ConfigureService.ConfigureDependenciesService(services);
             ConfigureRepository.ConfigureDependenciesRepository(services);
 
@@ -46,12 +60,6 @@ namespace API
             var signingConfigurations = new SigningConfigurations();
             services.AddSingleton(signingConfigurations);
 
-            var tokenConfigurations = new TokenConfigurations();
-            new ConfigureFromConfigurationOptions<TokenConfigurations>(
-                Configuration.GetSection("TokenConfigurations"))
-                    .Configure(tokenConfigurations);
-            services.AddSingleton(tokenConfigurations);
-
             services.AddAuthentication(authOptions =>
             {
                 authOptions.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -60,8 +68,8 @@ namespace API
             {
                 var paramsValidation = bearerOptions.TokenValidationParameters;
                 paramsValidation.IssuerSigningKey = signingConfigurations.Key;
-                paramsValidation.ValidAudience = tokenConfigurations.Audience;
-                paramsValidation.ValidIssuer = tokenConfigurations.Issuer;
+                paramsValidation.ValidAudience = Environment.GetEnvironmentVariable("Audience");
+                paramsValidation.ValidIssuer = Environment.GetEnvironmentVariable("Issuer");
 
                 // Valida a assinatura de um token recebido
                 paramsValidation.ValidateIssuerSigningKey = true;
