@@ -9,7 +9,7 @@ namespace Domain.Entities
         [Required]
         [MaxLength(60)]
         public string Nome { get; set; }
-        public string CodIBGE { get; set; }
+        public int CodIBGE { get; set; }
 
         [Required]
         public Guid UfId { get; set; }

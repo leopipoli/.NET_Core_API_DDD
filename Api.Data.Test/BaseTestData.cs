@@ -18,7 +18,8 @@ namespace Data.Test
 
         public DbTeste()
         {
-            var connectionString = $"Persist Security Info=True;Server=localhost;Database={dataBaseName};User=root;Password=12345";
+            var connectionString = $"Persist Security Info=True; Data Source=localhost;Initial Catalog={dataBaseName};Integrated Security=True; TrustServerCertificate = true;";
+            //var connectionString = $"Persist Security Info=True;Server=localhost;Database={dataBaseName};User=root;Password=12345";
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddDbContext<MyContext>(x =>
                 //x.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)),
